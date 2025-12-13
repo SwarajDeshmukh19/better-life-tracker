@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Habit Tracker</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>🌱 Better Life Tracker</h1>
+        <p>Define your goal, get AI-powered daily habits, and track your progress.</p>
+    </header>
+
+    <main class="container">
+        
+        <section class="card goal-section">
+            <h2>🎯 Define Your Goal</h2>
+            <div class="input-group">
+                <input type="text" id="userGoal" placeholder="Example: Become a published author" required>
+                <button id="getSuggestions" class="cta-button">Get AI Suggestions</button>
+            </div>
+        </section>
+
+        <section class="card habit-list-section">
+            <h2>✔️ Daily Habits</h2>
+            <p class="instruction">Click a habit to mark it as completed.</p>
+            <ul id="habitContainer" class="habit-list">
+                </ul>
+        </section>
+
+        <section class="progress-area">
+            
+            <div class="card chart-card">
+                <h2>📈 Weekly Progress</h2>
+                <canvas id="progressChart"></canvas>
+            </div>
+
+            <div class="card leaderboard-card">
+                <h2>🏆 Leaderboard</h2>
+                <ul id="leaderboardContainer" class="leaderboard-list">
+                    </ul>
+            </div>
+            
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Habit Tracker. Powered by Node.js & OpenAI.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>

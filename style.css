@@ -1,0 +1,188 @@
+/* --- Color Palette --- */
+:root {
+    --primary-color: #008080; /* Teal */
+    --secondary-color: #F0F8FF; /* Alice Blue / Off-white */
+    --text-color: #333;
+    --light-text-color: #666;
+    --background-color: #f4f4f9; /* Light Gray Background */
+    --card-background: #fff;
+    --completed-color: #38a169; /* Green for completion */
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* --- Card Styles --- */
+.card {
+    background-color: var(--card-background);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+/* --- Goal Section & Input --- */
+.goal-section {
+    grid-column: 1 / -1; /* Span full width */
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#userGoal {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Prevents button from shrinking too much */
+}
+
+.cta-button:hover {
+    background-color: #006666; /* Darker Teal on hover */
+}
+
+.cta-button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+/* --- Habit List --- */
+.habit-list-section {
+    grid-column: 1 / -1;
+}
+
+.habit-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.habit-list li {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, text-decoration 0.3s;
+    border-left: 5px solid var(--primary-color);
+}
+
+.habit-list li:hover {
+    background-color: #e6f0ff;
+}
+
+.habit-list li.completed {
+    background-color: #e6ffe6; /* Very light green */
+    text-decoration: line-through;
+    color: var(--light-text-color);
+    border-left: 5px solid var(--completed-color);
+}
+
+/* --- Progress and Leaderboard Area --- */
+.progress-area {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    grid-column: 1 / -1;
+}
+
+.leaderboard-list {
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 0.9em;
+}
+
+/* ------------------------------------- */
+/* 📱 MOBILE RESPONSIVE STYLES (Key to mobile-friendliness) */
+/* ------------------------------------- */
+
+/* Tablet and Smaller Screen Fix (768px) */
+@media (max-width: 768px) {
+    /* Stack the chart and leaderboard vertically */
+    .progress-area {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Phone Fix (480px) */
+@media (max-width: 480px) {
+    /* Stack the input field and the button vertically for better tap targets */
+    .input-group {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    
+    .cta-button {
+        width: 100%; /* Make the button full width */
+    }
+}
